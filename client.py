@@ -1,5 +1,5 @@
 import socket
-import bitarray
+from bitarray import * 
 
 HOST = ''
 PORT = 65432
@@ -13,7 +13,7 @@ a = bitarray()
 a.frombytes(mensaje_ascii)
 print(a)
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM, mensaje_ascii) as s:
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
   s.connect((HOST, PORT))
   s.sendall(mensaje_ascii)
   data = s.recv(1024)
