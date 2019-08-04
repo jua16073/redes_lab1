@@ -1,0 +1,66 @@
+def redundant(part):
+  print(part)
+  n_part = []
+  # (1, 3, 5, 7, 9, 11, etc).
+  c_1 = 0
+  #  (2, 3, 6, 7, 10, 11, etc).
+  c_2 = 0
+  # (4–7, 12–15, 20–23, etc).
+  c_3 = 0
+  # (8–15, 24–31, 40–47, etc).
+  c_4 = 0
+  for b in range(len(part)):
+    if b in [0,2,4,6]:
+      if part[b]:
+        c_1 += 1
+    if b in [1,2,5,6]:
+      if part[b]:
+        c_2 += 1
+    if b in [3,4,5,6]:
+      if part[b]:
+        c_3 += 1
+    if b == 7:
+      if part[b]:
+        c_4 += 1
+
+  
+
+msg_8 = []
+#dividir el mensaje en bits de 8
+temp = []
+for x in range(len(msg)):
+  if x % 8 == 0 and x !=0:
+    msg_8.append(temp)
+    temp = []
+  temp.append(msg[x])
+msg_8.append(temp)
+
+for byte in msg_8:
+  redundant(byte)
+
+
+
+
+#Using even parity
+
+def code(msg):
+  print('hamming ', msg)
+  m = len(msg)
+  # numero de bits redundantes
+  r = 0
+  while True:
+    if (2**r) >= m + r +1:
+      break
+    else:
+      r+=1
+  print(m)
+  print(r)
+
+  for x in range(len(msg)):
+    
+
+
+  # (1, 3, 5, 7, 9, 11, etc).
+  #  (2, 3, 6, 7, 10, 11, etc).
+  # (4–7, 12–15, 20–23, etc).
+  # (8–15, 24–31, 40–47, etc).

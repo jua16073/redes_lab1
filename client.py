@@ -40,6 +40,7 @@ print(comprobacion)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
   s.connect((HOST, PORT))
+
   s.sendall(mensaje_enviado)
   data = s.recv(100000000)
   resultados1 = recibir(data)
@@ -50,3 +51,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
   else:
     print('Error')
 print("Received", repr(result))
+

@@ -1,10 +1,13 @@
 from bitarray import *
 
+import pickle
+import unicodedata
+import hamming
+
 
 def string_to_binary(msg):
     var = bin(int.from_bytes(msg.encode(), 'big'))[2:]
     return var
-
 
 def binary_to_string(binary, encoding='utf-8', errors ='surrogatepass'):
     var2 = int(binary,2)
